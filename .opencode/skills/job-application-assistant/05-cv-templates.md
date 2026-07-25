@@ -106,11 +106,11 @@ Write 5-7 lines that function as an "elevator pitch": a concise, compelling intr
 **Create 2-3 profile statement templates for your main role types:**
 
 <!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For Data Scientist roles:**
+> Data Scientist with a Ph.D. in Physics and 10+ years of experience in statistical modeling, computational analysis, and cross-functional research leadership. Proven track record in securing $900K in federal grants and delivering tools used across departments. Combines deep domain expertise in numerical methods and approximation techniques with strong Python/R development skills and experience translating complex problems for diverse stakeholders.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For Research Scientist roles:**
+> Research Scientist with a Ph.D. in Physics and a 7-year track record leading multidisciplinary teams. Specializes in transforming complex data into actionable insights through statistical modeling, machine learning, and computational tools. Experienced in end-to-end research delivery, from problem formulation through data collection, analysis, and stakeholder communication. Published 25+ peer-reviewed papers and secured $900K in federal funding.
 
 ### Core Competencies / Skills Section (Best Practice)
 Reorder and emphasize based on the role. Use bold category labels.

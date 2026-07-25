@@ -1,4 +1,6 @@
-# /expand - Competency Expansion from Documents and Online Presence
+---
+description: Expand profile from documents and online presence
+---
 
 You are enriching the candidate profile by discovering competencies hidden in documents and public online presence. This command is additive only — it never modifies existing profile content, only extends it.
 
@@ -10,8 +12,8 @@ Follow these steps **exactly in order**. Do not skip steps.
 
 Read these two files in parallel before doing anything else. You must know what is already there so you do not propose duplicates.
 
-- `.claude/skills/job-application-assistant/01-candidate-profile.md`
-- `.claude/skills/job-application-assistant/02-behavioral-profile.md`
+- `.opencode/skills/job-application-assistant/01-candidate-profile.md`
+- `.opencode/skills/job-application-assistant/02-behavioral-profile.md`
 
 Hold this content in context throughout the command. Do not re-read these files later.
 
@@ -107,7 +109,7 @@ After enriching all items, build a deduplicated competency map. Group findings i
 **Technical Skills — Secondary** (tools you have used but are not primary)  
 **Domain Knowledge** (subject matter expertise: geophysics, ML, NLP, etc.)  
 **Methods and Practices** (agile, version control, reproducibility, testing, etc.)  
-**Soft / Behavioral** (leadership, communication, collaboration signals from references and project descriptions)  
+**Soft / Behavioral** (leadership, communication, collaboration signals from references and project descriptions)
 
 For each competency, record:
 - The competency name

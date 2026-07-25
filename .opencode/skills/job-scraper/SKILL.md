@@ -1,9 +1,6 @@
-# Job Scraper
-
-**name:** job-scraper
-**description:** Scrapes Danish job sites for new positions matching your profile. Deduplicates across runs. Triggers on: job scrape, find jobs, search jobs, new jobs, job search, scrape jobs, /scrape
-**allowed-tools:** Read, Write, Edit, Glob, Grep, WebFetch, WebSearch, Agent, AskUserQuestion
-
+---
+name: job-scraper
+description: Scrapes Danish job sites for new positions matching your profile
 ---
 
 ## How It Works
@@ -116,4 +113,4 @@ If the user decides to apply to any job, add a row to `job_search_tracker.csv`.
 3. **Focus on configured geographic area.** Skip jobs that require relocation or are clearly outside commute range.
 4. **Only open positions.** Skip postings with expired deadlines or those marked as closed.
 5. **Be efficient with WebFetch.** Don't fetch every search result - use titles and snippets to pre-filter before fetching.
-6. **Parallel searches.** Use the Agent tool or parallel WebSearch calls to speed up the search phase.
+6. **Parallel searches.** Use the Task tool or parallel WebSearch calls to speed up the search phase.

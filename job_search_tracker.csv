@@ -1,1 +1,3 @@
 date,company,sector,role,role_type,channel,status,contact_person,fit_rating,notes,cv_file,cover_letter_file,source
+2026-07-25,Pendo,Product Analytics / GTM Intelligence,Sr. Data Scientist,Full-time,LinkedIn,Applied,,74/100,Hybrid Raleigh NC 3 days/week ~1.5hr commute from Greenville,main_pendo.tex,cover_pendo_sr_data_scientist.tex,LinkedIn job scraper
+2026-07-25,Honeywell,Industrial Automation / Intelligent Automation,Advanced Data Scientist,Full-time,Glassdoor,Applied,,75/100,Hybrid Raleigh NC, SME Analytics team, reports to Fellow, $117K-$151K,main_honeywell.tex,cover_honeywell_advanced_data_scientist.tex,Glassdoor job scraper

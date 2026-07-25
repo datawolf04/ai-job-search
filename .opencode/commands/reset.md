@@ -1,4 +1,6 @@
-# /reset - Reset Candidate Profile Data
+---
+description: Reset profile data or documents
+---
 
 You are resetting parts of the job search framework back to a blank state so the user can start fresh with `/setup`.
 
@@ -38,10 +40,10 @@ Before doing anything, show the user precisely what will be wiped.
 
 Read the current state of these files and report whether each has content or is already empty:
 
-- `.claude/skills/job-application-assistant/01-candidate-profile.md`
-- `.claude/skills/job-application-assistant/02-behavioral-profile.md`
-- `.claude/skills/job-application-assistant/05-cv-templates.md` *(profile statements section only — framework structure is preserved)*
-- `.claude/skills/job-application-assistant/07-interview-prep.md` *(STAR examples and STAR candidates sections only — framework structure is preserved)*
+- `.opencode/skills/job-application-assistant/01-candidate-profile.md`
+- `.opencode/skills/job-application-assistant/02-behavioral-profile.md`
+- `.opencode/skills/job-application-assistant/05-cv-templates.md` *(profile statements section only — framework structure is preserved)*
+- `.opencode/skills/job-application-assistant/07-interview-prep.md` *(STAR examples and STAR candidates sections only — framework structure is preserved)*
 
 Present as:
 

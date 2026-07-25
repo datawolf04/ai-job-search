@@ -16,9 +16,11 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** Python, R, Statistical Modeling, Machine Learning (TensorFlow, scikit-learn), Data Visualization, Computational Modeling, Numerical Methods, Research Methodology, Technical Communication
+
+**Moderate match areas:** SQL, Bash Scripting, Git, Web Development (HTML/CSS, JavaScript), ETL Pipelines, Cluster Computing
+
+**Weak match areas:** Cloud platforms (AWS/Azure/GCP), Deep Learning architectures, Software engineering best practices (CI/CD, testing), Industry-specific domain knowledge (finance, healthcare)
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?
@@ -30,9 +32,9 @@ Does work history align with what they're looking for?
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Physics Education Research, Data Analysis, Statistical Modeling, Computational Tool Development, Program Management
+**Moderate:** Machine Learning, AI Model Training, Cross-Functional Collaboration
+**Entry-level:** Industry software engineering, Cloud-based data pipelines, Production ML systems
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -63,19 +65,19 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Data Scientist or Research Scientist roles that leverage physics background and numerical modeling expertise
+- Roles involving statistical modeling, machine learning, and computational problem-solving
+- Opportunities to work on realistic system modeling, approximation methods, and numerical techniques
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
-- Non-task factors: leadership style, department culture, company values, degree of autonomy
+- Tasks that energize: Modeling realistic systems, numerical methods, approximation techniques, statistical analysis, data visualization, translating complex problems into actionable insights
+- Tasks that drain: Pure maintenance work with no innovation, bureaucratic processes without technical depth, roles disconnected from actual problem-solving
+- Non-task factors: Technical depth, collaboration with other technical experts, autonomy in problem-solving approach
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: Currently job searching full-time; open to relocation
+- **Flexibility**: Open to remote, hybrid, or on-site; must avoid long commutes
+- **Professional development**: Transition from academic to industry; building industry-relevant skills while leveraging deep research expertise
 
 ### 6. Salary Benchmark (Optional)
 
