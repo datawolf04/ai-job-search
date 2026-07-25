@@ -1,169 +1,193 @@
-%% Example CV - [YOUR_NAME]
-%% Comprehensive overview of all competencies, experience, and achievements.
-%% Use as a master reference when tailoring role-specific CVs.
+%% Steven F. Wolf, Ph.D. - Comprehensive CV
+%% Use as master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
-%% Compile with: lualatex main_example.tex
-%% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
+%% Compile with: pdflatex main_example.tex
 
-\documentclass[11pt,a4paper,sans]{moderncv}
-\moderncvstyle{banking}
-\moderncvcolor{blue}
-
-% Force both first and last name AND section headings to render in moderncv
-% blue (color1). Default banking on lualatex+MiKTeX leaves these black, which
-% looks inconsistent with the rest of the blue accent scheme.
-\renewcommand*{\firstnamestyle}[1]{{\fontsize{34}{36}\bfseries\upshape\color{color1}#1}}
-\renewcommand*{\lastnamestyle}[1]{{\fontsize{34}{36}\bfseries\upshape\color{color1}#1}}
-\renewcommand*{\sectionstyle}[1]{{\sectionfont\color{color1}#1}}
-
-\usepackage[utf8]{inputenc}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,
-    urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
-    pdfpagemode=FullScreen,
-}
-\usepackage[scale=0.80]{geometry}
-\usepackage{import}
-
-% personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\documentclass[10pt,letterpaper,ragged2e,withhyper,normalphoto]{altacv}
+\usepackage{sfwCV}
+\usepackage{multicol}
 
 \begin{document}
+\name{Steven F.\ Wolf Ph.D.}
 
-\makecvtitle
+\tagline{Data Scientist | Research Scientist | Technical Leader}
 
-% ============================================================
-%     PROFILE STATEMENT
-% ============================================================
+\personalinfo{%
+  \email{stevenwolf1687@gmail.com} \phone{586-484-3661}
+  \location{Greenville, NC, USA} \homepage{sfwolfphys.github.io}
+  \linkedin{steven-wolf-253b6625a} \github{sfwolfphys}
+  \printinfo{\faUser}{He/Him/His} }
 
-\vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\makecvheader
 
-% ============================================================
-%     CORE COMPETENCIES
-% ============================================================
+\cvsection{Professional Summary}
 
-\section{Core Competencies}
-\vspace{1pt}
+Data Scientist with a Ph.D. in Physics and 10+ years of experience in
+statistical modeling, computational analysis, and cross-functional
+research leadership. Proven track record in securing \$1.3M in federal
+grants and delivering tools used across departments. Combines deep
+domain expertise in numerical methods and approximation techniques
+with strong Python/R development skills and experience translating
+complex problems for diverse stakeholders.
+
+\cvsection{Technical Expertise}
+
+\begin{description}
+\item[Programming \& ML:] Python (NumPy, Pandas, Matplotlib,
+  TensorFlow, scikit-learn), R (statistical modeling, Shiny, Plotly),
+  SQL, Git
+\item[Statistical \& Computational:] Statistical Models, Numerical
+  Methods, Approximation Techniques, Complex Problem Solving, FEM/FEA
+\item[Data \& Infrastructure:] ETL Pipelines, Cluster Computing, Data
+  Visualization, Dashboard Creation, Airflow
+\item[Research \& Communication:] Cross-Functional Collaboration,
+  Technical Reporting, Program Management, Mentoring, Stakeholder
+  Communication
+\item[Tools \& Platforms:] Git, GitHub, LaTeX, Bash Scripting,
+  HTML/CSS, JavaScript
+\end{description}
+
+\cvsection{Professional Experience}
+
+\cvevent{Assistant Professor / Research Group Lead}{East Carolina
+  University}{August 2015 -- May 2025}{Greenville, NC}
+\begin{description}
+\item[Financial Strategy:] Secured >\$1.3M in federal and
+  institutional grants as PI (NSF-IUSE: \$900K; other sources)
+\item[Program Leadership:] Led ECU Learning Assistant Program through
+  planning, implementation, and evaluation; secured permanent funding
+  from Dean's office (\$500K+)
+\item[Curriculum Development:] Designed and taught introductory
+  physics labs: developed and validated assessment of scientific
+  practices; coordinated assessment of scientific practices across
+  multiple STEM disciplines; mentored graduate TAs; curriculum adopted
+  by Physics Department; still in use post-departure
+\item[Research Output:] Published 25 peer-reviewed research papers;
+  served as PI on multiple federal and state grants
+\end{description}
+
+\divider
+
+\cvevent{Physics Lecturer / Mentor}{Texas State University}{August
+  2014 -- August 2015}{San Marcos, TX}
 \begin{itemize}
-
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
-
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
-
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
-
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
-
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
-
+\item Taught college physics courses to classes of 30--100+ students
+  using active, interactive learning techniques
+\item Mentored 10 Learning Assistants and served as 1-1 mentor for the
+  H-LSAMP program
 \end{itemize}
 
-% ============================================================
-%     PROFESSIONAL EXPERIENCE
-% ============================================================
+\divider
 
-\section{Professional Experience}
-\vspace{3pt}
+\cvevent{Research Associate (Ph.D.)}{Michigan State University}{August
+  2012 -- August 2014}{East Lansing, MI}
+\begin{description}
+\item[Data Analysis:] Created analysis and visualization tools with
+  the R programming language, collaborating with research teams to
+  address domain-specific questions (3 peer-reviewed publications)
+\item[Project Management:] Conducted research independently, driving
+  projects through all phases, including design, data collection, and
+  delivery
+\end{description}
+
+\cvsection{Education}
+
+\cvevent{Ph.D.\ in Physics}{Michigan State University}{2006 --
+  2012}{East Lansing, MI} Thesis: Matter-wave amplification and
+femtosecond laser spectroscopy. Additional research in expert-novice
+cognitive structures.
+
+\cvevent{M.S.\ in Physics}{Dartmouth College}{2003 -- 2005}{Hanover,
+  NH} Research in solar wind phenomena and non-exponential decay.
+
+\cvevent{B.S.\ in Physics and Mathematics}{Valparaiso University}{1999
+  -- 2003}{Valparaiso, IN}
+
+\cvsection{Independent Projects}
+
+\cvevent{Physics/Data Science Expert}{Mercor Intelligence}{September
+  2025 -- Present}{Remote}
 \begin{itemize}
-
-% --- Most Recent Role ---
-\item{\cventry{[YYYY--Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
-\begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
-\end{itemize}}}
-
-\vspace{3pt}
-
-% --- Previous Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
-\begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-\end{itemize}}}
-
-\vspace{3pt}
-
-% --- Earlier Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
-\begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-\end{itemize}}}
-
+\item Providing expertise in Physics and Data Science to improve
+  models for top AI labs
 \end{itemize}
 
-% ============================================================
-%     EDUCATION
-% ============================================================
-
-\section{Education}
-\vspace{1pt}
+\cvevent{Physics/Data Science Expert}{Handshake AI}{December 2025 --
+  Present}{Remote}
 \begin{itemize}
-
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
-}}
-
-\vspace{3pt}
-
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
-}}
-
+\item Working with top AI labs to train cutting-edge models
 \end{itemize}
 
-% ============================================================
-%     LANGUAGES
-% ============================================================
+\cvevent{concorR R Package}{github.com/atraxlab/concorr}{September 2019 --
+  August 2022}{} R package implementing CONCOR (CONvergence of iterated
+CORrelations) for positional analysis of social networks, grouping
+nodes by structural equivalence
 
-\section{Languages}
-\vspace{1pt}
-\begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
-\end{itemize}
+\cvevent{PERC Proceedings Editorial}{Physics Education Research
+  Conference}{May 2018 -- December 2020}{Remote}
+\begin{description}
+\item[Editor in Chief (Jan 2020 -- Dec 2020):] Led editorial team,
+  coordinated delivery of conference proceedings during COVID
+  pandemic; created fully virtual conference
+\item[Editor (Jan 2019 -- Dec 2019):] Led peer review assignments;
+  created timeline for double-blind review process
+\item[Associate Editor (May 2018 -- Dec 2018):] Coordinated
+  proceedings delivery and maintained editorial standards
+\end{description}
 
-% ============================================================
-%     PUBLICATIONS (optional)
-% ============================================================
+\cvsection{Selected Publications}
 
-\section{Publications}
-\vspace{1pt}
-\begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
-\end{itemize}
+\begin{description}
+\item[Wolf, S.F., Sault, T.M., Suda, T., \& Traxler, A.L.]
+  (2022). Social Network Development in Classrooms. \textit{Applied
+    Social Network Analysis} 7, 24.
+\item[Wolf, S.F. \& Sprague, M.W.] (2022). Introductory Physics Labs:
+  A Tale of Two Transformations. \textit{The Physics Teacher} 60, 372.
+\item[Wolf, S.F., Dougherty, D.P., \& Kortemeyer, G.] (2012). Rigging
+  the Deck. \textit{Phys. Rev. ST-PER} 8, 020116.
+\item[Wolf, S.F., Dougherty, D.P., \& Kortemeyer, G.] (2012). An
+  Empirical Approach to Interpreting Card-sorting
+  Data. \textit{Phys. Rev. ST-PER} 8, 010124.
+\end{description}
 
-% ============================================================
-%     HONORS AND AWARDS (optional)
-% ============================================================
+\cvsection{Certifications}
 
-\section{Honors and Awards}
-\vspace{1pt}
-\begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
-\end{itemize}
+\begin{description}
+\item[Supervised Machine Learning:] Regression and Classification
+  (Coursera, Sep 2022)
+\item[Advanced Learning Algorithms:] (Coursera, Oct 2022)
+\item[Unsupervised Learning:] Recommenders, Reinforcement Learning
+  (Coursera, Oct 2022)
+\item[Linux Commands \& Shell Scripting:] (IBM, Dec 2022)
+\item[Databases and SQL for Data Science:] with Python, with Honors
+  (IBM, Jan 2023)
+\item[ETL and Data Pipelines:] Shell, Airflow and Kafka (Coursera, Jul
+  2023)
+\end{description}
 
-% ============================================================
-%     REFERENCES
-% ============================================================
+\cvsection{Awards}
 
-\section{References}
-\vspace{1pt}
-\begin{itemize}
-\item{Available upon request.}
-\end{itemize}
+\begin{description}
+\item[AAPT Outstanding Teaching Assistant Award] -- American
+  Association of Physics Teachers (2012)
+\item[Lyman Briggs College Outstanding TA Award] (\$1000) -- Michigan
+  State University (2012)
+\item[CoGS Travel Grant Award] (\$500) -- Michigan State University
+  (2011)
+\item[Sigma Pi Sigma Induction] -- National Physics Honors Society
+  (2003)
+\item[Presidential Academic Honors for Student Athletes] -- Valparaiso
+  University (2000--2003)
+\end{description}
+
+\cvsection{Languages}
+
+\begin{description}
+\item[English:] Native
+\end{description}
+
+\cvsection{References}
+
+Available upon request.
 
 \end{document}

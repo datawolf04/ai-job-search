@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["OPENCODE.md"],
+  "permission": {
+    "bash": {
+      "python3 *": "allow",
+      "python *": "allow",
+      "curl *": "allow",
+      "bun *": "allow"
+    }
+  }
+}

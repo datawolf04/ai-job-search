@@ -1,0 +1,42 @@
+%% Cover Letter Template - Steven F. Wolf, Ph.D.
+%% Compile with: pdflatex cover_template.tex
+
+\documentclass[11pt]{letter}
+
+\usepackage{sfwLetter}
+\geometry{bottom=0.75in,top=1.25in}
+
+\date{\today}
+
+\begin{document}
+
+\begin{letter}{
+% Recipient name
+Hiring Manager \\
+% Company name
+Company Name \\
+% Company address
+City, State, USA}
+
+\opening{Dear Hiring Manager,}
+
+% Opening paragraph: State the position you're applying for and why you're interested
+I am writing to express my interest in the [Position Title] role at [Company Name]. With a Ph.D. in Physics and over 10 years of experience in statistical modeling, computational analysis, and cross-functional research leadership, I am excited about the opportunity to contribute to your team.
+
+% Body paragraph 1: Highlight relevant experience and skills
+My experience aligns well with your requirements. As Assistant Professor and Research Group Lead at East Carolina University, I secured over \$1.3M in federal grants, led curriculum development initiatives, and published 25 peer-reviewed papers. My expertise in Python, R, and machine learning frameworks, combined with my ability to translate complex technical concepts for diverse stakeholders, positions me to make immediate contributions.
+
+% Body paragraph 2: Address specific requirements from the job posting
+% [Customize this paragraph for each application based on the job description]
+% Example: "Your emphasis on [specific requirement] resonates with my experience in [related experience]."
+
+% Closing paragraph: Express enthusiasm and call to action
+I would welcome the opportunity to discuss how my background, skills, and enthusiasm can contribute to [Company Name]'s success. I am available at your convenience for an interview and look forward to hearing from you.
+
+\closing{Sincerely,}
+
+% Optional: enclosures
+% \encl{Resume, References}
+
+\end{letter}
+\end{document}

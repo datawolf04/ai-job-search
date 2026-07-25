@@ -4,15 +4,21 @@ Step-by-step instructions for getting the AI Job Search framework running.
 
 ## 1. Prerequisites
 
-### Claude Code
+### opencode
 
-Install Claude Code (Anthropic's CLI for Claude):
+Install opencode:
 
 ```bash
-npm install -g @anthropic-ai/claude-code
+curl -fsSL https://opencode.ai/install | bash
 ```
 
-You'll need an Anthropic API key or a Claude Pro/Team subscription. See the [Claude Code docs](https://docs.anthropic.com/en/docs/claude-code) for details.
+Or via npm:
+
+```bash
+npm install -g opencode-ai
+```
+
+You'll need an API key from one of the [supported providers](https://opencode.ai/docs/providers). See the [opencode docs](https://opencode.ai/docs) for details.
 
 ### Python
 
@@ -59,10 +65,10 @@ done
 
 ## 4. Run the setup interview
 
-Start Claude Code in the repository:
+Start opencode in the repository:
 
 ```bash
-claude
+opencode
 ```
 
 Then run the onboarding:
@@ -71,9 +77,9 @@ Then run the onboarding:
 /setup
 ```
 
-Claude will offer two paths:
+opencode will offer two paths:
 
-- **Path A (recommended):** Share your existing CV (mention the file with `@` or paste the text). Claude extracts your information and asks follow-up questions for anything missing.
+- **Path A (recommended):** Share your existing CV (mention the file with `@` or paste the text). opencode extracts your information and asks follow-up questions for anything missing.
 - **Path B:** Answer structured interview questions section by section.
 
 Both paths produce the same result: fully populated profile files.
@@ -130,7 +136,7 @@ Or paste the job description directly:
 /apply [paste job posting text here]
 ```
 
-Claude will:
+opencode will:
 1. Evaluate the fit against your profile
 2. Ask if you want to proceed
 3. Draft a tailored CV and cover letter
