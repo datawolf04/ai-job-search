@@ -1,0 +1,50 @@
+\ProvidesPackage{sfwCV}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% \usepackage{sansmathfonts}
+% \usepackage[T1]{fontenc}
+% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans
+% %% serif
+
+% \usepackage{cmbright}
+% \usepackage[OT1]{fontenc}
+
+% Change the colours if you want to
+\definecolor{NavyBlue}{HTML}{163A5F}
+\definecolor{MidBlue}{HTML}{4F6D8C}
+\definecolor{Teal}{HTML}{2A9D8F}
+\definecolor{SlateGrey}{HTML}{2B2B2B}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{name}{black}
+\colorlet{tagline}{MidBlue}
+\colorlet{heading}{NavyBlue}
+\colorlet{subheading}{MidBlue}
+\colorlet{accent}{MidBlue}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+\colorlet{headingrule}{Teal}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\Large\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+\personalinfo{%
+  \email{stevenwolf1687@gmail.com}
+  \phone{586-484-3661}
+  \location{Greenville, NC, USA}
+  \printinfo{\faGlobe}{sfwolfphys.github.io, datawolf04.github.io}
+  \linkedin{steven-wolf-253b6625a}
+  \printinfo{\faGithub}{sfwolfphys, datawolf04}
+  \printinfo{\faUser}{He/Him/His}
+}
+
+

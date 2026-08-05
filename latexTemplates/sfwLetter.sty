@@ -1,0 +1,93 @@
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{sfwLetter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[letterpaper]{geometry}
+\geometry{left=1in,right=1in,bottom=1in}
+
+\usepackage{xcolor}
+% Change the colours if you want to
+\definecolor{NavyBlue}{HTML}{163A5F}
+\definecolor{MidBlue}{HTML}{4F6D8C}
+\definecolor{Teal}{HTML}{2A9D8F}
+\definecolor{SlateGrey}{HTML}{2B2B2B}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{name}{black}
+\colorlet{tagline}{MidBlue}
+\colorlet{heading}{NavyBlue}
+\colorlet{subheading}{MidBlue}
+\colorlet{accent}{MidBlue}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+\colorlet{headingrule}{Teal}
+
+\usepackage[fixed]{fontawesome5}
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=body,urlcolor=body}
+
+\newcommand{\namefont}{\Huge\rmfamily\bfseries}
+\newcommand{\personalinfofont}{\footnotesize}
+
+\usepackage{fancyhdr}
+\fancypagestyle{firststyle}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{2pt}
+  \renewcommand{\headrule}{\hbox to\headwidth{%
+      \color{headingrule}\leaders\hrule height \headrulewidth\hfill}}
+  \fancyhead[C]{{\namefont\color{name} Steven F.\ Wolf Ph.D.}\\[1em]
+    {\personalinfofont \color{body}
+      \begin{tabular}[b]{rlll}
+        {\color{accent}{\faMapMarker*}}
+        & 1637 Upland Dr. &{\color{accent}{\faPhone}} 586-484-3661
+        &{\color{accent}{\faGithub}} sfwolfphys, datawolf04 \\ 
+        & Greenville, NC 27858 & {\color{accent}{\faAt}}
+                                 \href{mailto:stevenwolf1687@gmail.com}{stevenwolf1687@gmail.com}
+        &\href{https://www.linkedin.com/in/steven-wolf-253b6625a/}{{\color{accent}{\faLinkedin}}
+          steven-wolf-253b6625a} \\ 
+      \end{tabular}
+    }
+  }
+  \fancyfoot[C]{}
+}
+
+\usepackage{graphicx}
+\usepackage{etoolbox}
+
+\makeatletter
+\renewcommand*{\opening}[1]{\ifx\@empty\fromaddress
+  \thispagestyle{firstpage}%
+    %{\raggedleft\@date\par}%       <--- REMOVED
+  \else  % home address
+    \thispagestyle{empty}%
+    {\raggedleft\begin{tabular}{l@{}}\ignorespaces
+      %\fromaddress \\*[2\parskip]% <--- REMOVED
+      %\@date \end{tabular}\par}%   <--- REMOVED
+      \fromaddress%                 <--- ADDED
+      \end{tabular}\par}%           <--- ADDED
+  \fi
+  \vspace{2\parskip}%
+  {\raggedright \toname \\ \toaddress \par}%
+  {\raggedleft\@date\par}%          <--- ADDED
+  \vspace{1\parskip}%
+  #1\par\nobreak}
+\makeatother
+
+
+
+\name{Steven F.\ Wolf, Ph.D.}
+\signature{\vspace{-1cm} \includegraphics[scale=1]{signature.png} \\ Steven F.\ Wolf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\AddToHook{begindocument/before}{%
+  \pagestyle{empty}
+  \color{body}
+  \raggedright
+}
+
+\endinput
+

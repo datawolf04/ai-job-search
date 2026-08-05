@@ -61,7 +61,6 @@ Expected output: `Output written on main_<company>.pdf (2 pages, ...)`. Any page
 % 4. Professional Experience section
 % 5. Selected Publications (if applicable)
 % 6. Honors and Awards (if applicable)
-% 7. References
 
 \end{document}
 ```
@@ -112,6 +111,11 @@ Write 5-7 lines that function as an "elevator pitch": a concise, compelling intr
 **For Research Scientist roles:**
 > Research Scientist with a Ph.D. in Physics and a 7-year track record leading multidisciplinary teams. Specializes in transforming complex data into actionable insights through statistical modeling, machine learning, and computational tools. Experienced in end-to-end research delivery, from problem formulation through data collection, analysis, and stakeholder communication. Published 25+ peer-reviewed papers and secured $900K in federal funding.
 
+**For Data Engineer roles:**
+> Data Engineer with a Ph.D. in Physics and 10+ years of experience building data pipelines, workflow orchestration systems, and reproducible analytical infrastructure. Designed and maintained ETL pipelines using Airflow, SQL, and Python that supported multi-stakeholder reporting and accountability calculations. Track record of building documented, tested, and maintainable data products used across departments.
+
+*[Used for: pcs_data_engineer]*
+
 ### Core Competencies / Skills Section (Best Practice)
 Reorder and emphasize based on the role. Use bold category labels.
 
@@ -141,11 +145,6 @@ If there is a gap in your employment history:
 ### Honors and Awards
 - Keep format brief, one line each
 
-### References
-- List 2-4 references with name, title, company, and contact
-- End with: "More references are available upon request."
-- **Do not attach reference letters** - employers typically contact references directly
-
 ## Compile-and-Inspect Loop (MANDATORY)
 
 After writing the CV and before presenting to the user, always compile and visually inspect the PDF. Iterate until the layout is clean. Workflow:
@@ -165,7 +164,7 @@ Add `\needspace{5\baselineskip}` immediately before the problematic `\cventry`:
 ```
 Include `\usepackage{needspace}` in the preamble.
 
-**Problem: one trailing section spills to page 3 (e.g., References alone on page 3)**
+**Problem: one trailing section spills to page 3 (e.g., Awards alone on page 3)**
 Add `\enlargethispage{2-3\baselineskip}` before a late section (e.g., before `\section{Honors and Awards}`) to stretch page 2 by a few lines. This is the standard LaTeX rescue for near-miss overflows.
 
 **Problem: 3 pages with significant content on page 3**
@@ -188,7 +187,6 @@ The CV **must** fit on exactly 2 pages when compiled. Use these content limits a
 | Education | 2-3 entries |
 | Publications | 2-3 entries |
 | Awards | 3 entries, single line each |
-| References | "Available upon request." (single line) |
 
 **If in doubt, cut rather than squeeze.** Reducing `\vspace` or geometry scale to force-fit content makes the CV look cramped.
 
@@ -230,7 +228,6 @@ The section order varies by role type:
 4. Education (reverse chronological)
 5. Languages
 6. Publications & Awards
-7. References
 
 **For domain-specific / specialist roles:**
 1. Profile statement / elevator pitch
@@ -238,4 +235,3 @@ The section order varies by role type:
 3. Education (reverse chronological) - credentials are a key qualifier
 4. Professional Experience (reverse chronological)
 5. Publications & Awards
-6. References

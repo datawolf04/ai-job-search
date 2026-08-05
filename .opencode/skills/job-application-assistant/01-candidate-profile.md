@@ -6,19 +6,19 @@
 - **Phone:** 586-484-3661
 - **Email:** stevenwolf1687@gmail.com
 - **LinkedIn:** steven-wolf-253b6625a
-- **GitHub:** sfwolfphys
-- **Homepage:** sfwolfphys.github.io
+- **GitHub:** sfwolfphys, datawolf04
+- **Homepages:** sfwolfphys.github.io, datawolf04.github.io
 - **Languages:** English (native)
 - **Status:** Job searching full-time
 - **Pronouns:** He/Him/His
-- **Constraints:** Open to relocation
+- **Constraints:** Open to relocation; preferred areas: Midwest (IL, IN, WI, MI, OH), Washington DC area, Raleigh/Durham NC (commutable for hybrid positions)
 - **Salary:** Flexible, depends on job location and responsibilities
 
 ## Education
 
 | Degree | Period | Institution | Key Topics |
 |--------|--------|-------------|------------|
-| Ph.D. in Physics | 2006--2012 | Michigan State University | Matter-wave amplification, femtosecond laser spectroscopy, expert-novice cognitive structures |
+| Ph.D. in Physics | 2006--2012 | Michigan State University | Thesis: Expert and Novice Categorization of Introductory Physics Problems; additional research in Femtosecond Laser Spectroscopy and Matter-Wave Amplification |
 | M.S. in Physics | 2003--2005 | Dartmouth College | Solar wind phenomena, non-exponential decay |
 | B.S. in Physics and Mathematics | 1999--2003 | Valparaiso University | Physics, Mathematics |
 

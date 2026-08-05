@@ -12,17 +12,21 @@ This repo is a job application workspace. opencode acts as a career advisor and 
 
 ### Identity
 - **Name:** Steven F. Wolf, Ph.D.
-- **Location:** Greenville, NC, USA (open to relocation)
-- **Languages:** English (native)
+- **Location:** Greenville, NC, USA
 - **Status:** Job searching full-time
 - **LinkedIn:** steven-wolf-253b6625a
-- **GitHub:** sfwolfphys
-- **Homepage:** sfwolfphys.github.io
+- **GitHub:** sfwolfphys, datawolf04
+- **Homepages:** sfwolfphys.github.io, datawolf04.github.io
+
+### Relocation Preferences
+- **Midwest:** Illinois, Indiana, Wisconsin, Michigan, Ohio
+- **Washington DC area:** Open to relocation
+- **Raleigh/Durham, NC:** Commutable distance for hybrid positions
 
 ### Education
 - **Ph.D. in Physics** (2006-2012) - Michigan State University
-  - Thesis: "Matter-wave amplification and femtosecond laser spectroscopy"
-  - Additional research in expert-novice cognitive structures
+  - Thesis: "Expert and Novice Categorization of Introductory Physics Problems."
+  - Additional research in Femtosecond Laser Spectroscopy and Matter-Wave Amplification.
 - **M.S. in Physics** (2003-2005) - Dartmouth College
   - Research in solar wind phenomena and non-exponential decay
 - **B.S. in Physics and Mathematics** (1999-2003) - Valparaiso University
@@ -107,8 +111,9 @@ This repo is a job application workspace. opencode acts as a career advisor and 
 - Flexible, depends on job location and responsibilities
 
 ## Repo Structure
-- `cv/` - LaTeX CV variants (moderncv template, banking style)
-- `cover_letters/` - LaTeX cover letters (custom cover.cls template)
+- `cv/` - LaTeX CV variants (altacv class, banking style)
+- `cover_letters/` - LaTeX cover letters (standard letter class with sfwLetter.sty)
+- `latexTemplates/` - altacv.cls, sfwCV.sty (colors + personal info), sfwLetter.sty (symlinked from ~/texmf/tex/latex/local/)
 - `.opencode/skills/` - AI skill definitions for the application workflow
 - `.agents/skills/` - Job search CLI tools
 
@@ -138,7 +143,7 @@ After creating or updating a CV or cover letter, re-read the generated file and 
 
 ### Consistency
 - [ ] CV follows the standard 2-page moderncv/banking format
-- [ ] Cover letter uses cover.cls template and established structure
+- [ ] Cover letter uses \documentclass[11pt]{letter} and \usepackage{sfwLetter} template and established structure
 - [ ] Tone is consistent across CV and cover letter
 - [ ] No contradictions between CV and cover letter content
 
@@ -152,7 +157,10 @@ After creating or updating a CV or cover letter, re-read the generated file and 
 ### Compiled PDF verification (MANDATORY - never skip)
 Both documents MUST be compiled and visually inspected via the Read tool on the PDF output. "Looks fine in the .tex" is not acceptable - LaTeX page-break decisions are unpredictable. Iterate until these all pass:
 - [ ] CV compiled with **lualatex** (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors). Cover letter compiled with **xelatex** (cover.cls requires fontspec).
-- [ ] **CV is exactly 2 pages** - not 1, not 3
+- [ ] **CV is longer than 1 page**
 - [ ] **No orphaned `\cventry` titles** - a job/education title must never sit at the bottom of a page with its bullets spilling to the next page. Use `\needspace{5\baselineskip}` before each `\cventry` to prevent this, and `\enlargethispage{2-3\baselineskip}` to rescue a trailing section that just barely spills
+- [ ] **No `\divider` at the bottom of a page** - if a `\divider` would land at the bottom of a page, remove it
 - [ ] **Cover letter is exactly 1 page** - signature block must fit with the body, never overflow
 - [ ] **Cover letter bullet font matches body font** - `\lettercontent{}` must not wrap `\begin{itemize}...\end{itemize}` (the command's trailing `\\` errors on `\end{itemize}`, and moving itemize outside loses the Raleway font). Standard pattern: close `\lettercontent{}`, then wrap the list in `{\raggedright\fontspec[Path = OpenFonts/fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont \begin{itemize}...\end{itemize}\par}`
+
+Once the cover letter and CV are compiled, open them using the default PDF reader for review.

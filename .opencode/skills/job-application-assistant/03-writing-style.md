@@ -100,6 +100,10 @@ The cover letter is **not a CV repetition**. It should be forward-looking:
 - Lead with project management, mentoring, course development
 - Frame advanced degrees as evidence of independent project delivery
 
+## Patterns Observed in Past Applications
+
+- **"Here is how my experience maps to [Team]'s work:"** All tracked cover letters (PCS Data Engineer, Honeywell Advanced Data Scientist, Pendo Sr. Data Scientist) use this exact section header followed by a 4-bullet itemize list. It creates a scannable "requirements → evidence" bridge. When using this pattern, follow it with bullets inside the Raleway-Medium fontspec wrapper.
+
 ## Multi-language Applications
 - Default to the language of the job posting
 - Cover letters in the posting's language should feel natural, not translated

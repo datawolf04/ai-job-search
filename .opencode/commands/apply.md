@@ -222,7 +222,90 @@ Do not proceed to Step 6 until both PDFs pass inspection.
 
 ### 5d. Clean up build artifacts
 
-After the final clean compile, delete the `.aux`, `.log`, `.out` files (keep the `.tex` and `.pdf`).
+After the final clean compile, delete the `.aux`, `.log`, `.out` files from the `cv/` and `cover_letters/` directories (keep the `.tex` and `.pdf`).
+
+---
+
+## Step 5.5: Archive Application
+
+Once the PDFs pass inspection, archive the application into `documents/applications/`. This creates a permanent record with frozen dates and symlinked source files.
+
+### 5.5a. Create application folder
+
+```bash
+mkdir -p documents/applications/<company>_<role>
+```
+
+Slug: lowercase company and role, spaces → hyphens, strip special characters. Examples: `pendo_sr_data_scientist`, `honeywell_advanced_data_scientist`.
+
+### 5.5b. Copy files to application folder
+
+```bash
+cp cv/main_<company>.tex documents/applications/<company>_<role>/cv_draft.tex
+cp cv/main_<company>.pdf documents/applications/<company>_<role>/cv_draft.pdf
+cp cover_letters/cover_<company>_<role>.tex documents/applications/<company>_<role>/cover_letter.tex
+cp cover_letters/cover_<company>_<role>.pdf documents/applications/<company>_<role>/cover_letter.pdf
+```
+
+### 5.5c. Freeze dates in the archived copies
+
+The `.tex` files may use `\date{\today}`. After copying to the application folder, freeze the date to today:
+
+- In the cover letter `.tex`: replace `\date{\today}` with `\date{<Month Day, Year>}` (e.g., `\date{July 25, 2026}`).
+- The CV typically has no visible date — no change needed.
+
+Use the Edit tool on the **copied** file in the application folder, not the original in `cv/` or `cover_letters/`.
+
+### 5.5d. Replace originals with symlinks
+
+Remove the original files from `cv/` and `cover_letters/` and replace them with symlinks pointing to the archived copies:
+
+```bash
+rm cv/main_<company>.tex
+ln -s ../documents/applications/<company>_<role>/cv_draft.tex cv/main_<company>.tex
+rm cv/main_<company>.pdf
+ln -s ../documents/applications/<company>_<role>/cv_draft.pdf cv/main_<company>.pdf
+rm cover_letters/cover_<company>_<role>.tex
+ln -s ../documents/applications/<company>_<role>/cover_letter.tex cover_letters/cover_<company>_<role>.tex
+rm cover_letters/cover_<company>_<role>.pdf
+ln -s ../documents/applications/<company>_<role>/cover_letter.pdf cover_letters/cover_<company>_<role>.pdf
+```
+
+Also clean up any `.aux`, `.log`, `.out` files from `cv/` and `cover_letters/` for these documents.
+
+### 5.5e. Create job_posting.md
+
+Write the full job posting text to `documents/applications/<company>_<role>/job_posting.md` as a markdown file with the company name, role title, team/department, location, and full posting content.
+
+### 5.5f. Create outcome.md
+
+Write `documents/applications/<company>_<role>/outcome.md` with this template:
+
+```markdown
+# Outcome: <Company> — <Role>
+
+**Status:** no_response
+
+**Date resolved:**
+
+## Interview stages reached
+- [ ] Phone screen
+- [ ] Technical interview
+- [ ] Case interview
+- [ ] Final round
+- [ ] Offer received
+
+## Notes
+Applied <YYYY-MM-DD>. Awaiting response.
+```
+
+### 5.5g. Verify symlinks work
+
+```bash
+ls -la cv/main_<company>.tex cover_letters/cover_<company>_<role>.tex
+```
+
+Confirm the symlinks resolve and the files are readable.
 
 ---
 
@@ -242,7 +325,11 @@ Summarize 3-5 key decisions made to tailor the application:
 
 ### Files Created
 List the files written:
-- `cv/main_<company>.tex`
-- `cover_letters/cover_<company>_<role>.tex`
+- `documents/applications/<company>_<role>/cv_draft.tex` (canonical, symlinked from `cv/main_<company>.tex`)
+- `documents/applications/<company>_<role>/cover_letter.tex` (canonical, symlinked from `cover_letters/cover_<company>_<role>.tex`)
+- `documents/applications/<company>_<role>/cv_draft.pdf`
+- `documents/applications/<company>_<role>/cover_letter.pdf`
+- `documents/applications/<company>_<role>/job_posting.md`
+- `documents/applications/<company>_<role>/outcome.md`
 
-Tell the user: "Both files are ready for your review. Open them to check the final output before compiling."
+Tell the user: "Application archived to `documents/applications/<company>_<role>/`. The CV and cover letter in `cv/` and `cover_letters/` are now symlinks to the archived copies. Both files are ready for your review."

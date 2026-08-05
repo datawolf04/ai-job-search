@@ -49,9 +49,10 @@ Does the role and company culture match the behavioral profile?
 **Red flags to research:** Department disorganization, work dominated by maintenance over development, poor chemistry with leadership, culture mismatches. Check reviews, media coverage, LinkedIn connections, and network contacts for insider perspective.
 
 ### 4. Location & Logistics (Pass/Fail + Notes)
-- Within commute range: PASS
+- Within commute range (Raleigh/Durham, NC): PASS
 - Remote with occasional office: PASS
-- Requires relocation: FAIL (deal-breaker)
+- Relocation to preferred areas (Midwest: IL, IN, WI, MI, OH; Washington DC area): PASS
+- Requires relocation outside preferred areas: FAIL
 - Frequent international travel: FLAG (discuss with user)
 
 ### 5. Career Alignment & Motivation (0-100)
@@ -77,6 +78,7 @@ Does this role advance career goals and contain tasks that energize?
 **Life situation alignment:** Consider personal constraints:
 - **Security**: Currently job searching full-time; open to relocation
 - **Flexibility**: Open to remote, hybrid, or on-site; must avoid long commutes
+- **Preferred relocation areas:** Midwest (IL, IN, WI, MI, OH), Washington DC area, Raleigh/Durham NC (commutable for hybrid)
 - **Professional development**: Transition from academic to industry; building industry-relevant skills while leveraging deep research expertise
 
 ### 6. Salary Benchmark (Optional)
@@ -100,6 +102,21 @@ Present findings as:
 Interpret results relative to the baseline defined in the data file's metadata. For index-based data, higher typically means above-market compensation.
 
 If the salary tool is not configured, skip this section.
+
+## Calibration from Past Applications
+
+### Confirmed Strong-Fit Signals
+None yet (no applications have reached interview stage as of Jul 2026).
+
+### Rejection / No-Response Patterns (Tentative)
+- **Data scientist roles at tech companies** (Honeywell, Pendo, Red Hat): Applied late Jul 2026; awaiting responses. Too early to identify patterns (< 2 weeks since application).
+- **Senior/Principal data scientist roles** (RELX, Red Hat): Gaps in LLM tooling (RAG, vector databases, agent frameworks) and domain-specific knowledge (legal tech, open source) may reduce competitive position.
+- **Data engineer pivot** (PCS): Moderate skill match (50/100) — role was withdrawn, but profile statement framed skills toward ETL/infrastructure rather than pure analysis.
+
+### Role-Type Fit Assessment
+- Pure data scientist roles in tech: **Moderate fit** — likely strongest when the role values quantitative research background and cross-functional communication alongside modeling.
+- Domain-specific data science (utilities, legal tech, education): **Stronger fit** — physics background maps naturally to engineering/physical sciences domains; education sector is a direct match.
+- Data engineer roles: **Weaker fit** — production infrastructure experience is limited; gap requires significant upskilling or a junior-level entry point.
 
 ## Output Format
 
