@@ -1,0 +1,104 @@
+% LaTeX Template for USAJobs resume builder-style federal resume with cleaner formatting
+%
+% Template includes all sections and fields from the USAJobs resume builder as of August 2023
+% Recommend that you fill out the resume builder first, save the PDF, and then use that info to populate this template
+%
+% This template has been modified from and includes elements of the following templates:
+% Jake's Resume (https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs)
+%
+% Academic CV Template (https://www.overleaf.com/latex/examples/academic-cv-template/hvjpfjnyggbf)
+% 
+% AutoCV (https://www.overleaf.com/latex/templates/autocv/scfvqfpxncwb)
+%
+% Modified by Teresa Symons (tasymons.github.io)
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[letterpaper,12pt]{fed-res} % See the fed-res.cls file to import packages and edit formatting/style
+\begin{document}
+
+%-------------------------------------------------------------------------------
+%	HEADING INFORMATION
+%-------------------------------------------------------------------------------
+\begin{center}
+    \textbf{\Huge \scshape Steven F. Wolf, Ph.D.} \\ \vspace{1pt}
+    1637 Upland Dr., Greenville, NC 27858 \\ \vspace{1pt}
+    586-484-3661 \ $|$ \ stevenwolf1687@gmail.com \\ \vspace{1pt} % Recommended not to include email link or other hyperlinks in resume PDF submitted to USAJobs
+\end{center}
+
+ANNOUNCEMENT NUMBER: 25-NT-01101-12635066-DH \\ \vspace{1pt} % Copy and paste the announcement number from the job you are applying to
+Veteran's Preference: None $|$ \ Federal Employment Status: None $|$ \ Citizenship: USA % List your veteran's preference, fed employment status, and current citizenship. Put N/A if one of these does not apply to you
+
+%-------------------------------------------------------------------------------
+%	RESUME CONTENT
+%   These are the sections from the USAJobs resume builder
+%	Each section is imported separately
+%   Open each file in 'resumeSections' to modify content
+%   Comment out or delete any sections that you do not wish to include
+%-------------------------------------------------------------------------------
+
+%-----------WORK EXPERIENCE----------- 
+% If any of your work experience includes Federal Civilian positions, additional info is needed that this template does not currently accommodate without modifications
+\input{resumeSections/workExp}
+
+%-----------VOLUNTEER EXPERIENCE------------
+% Volunteer experience does not have its own section on the USAJobs resume builder, but including volunteer experience is encouraged
+% Here, I've chosen not to include address, supervisor, or hours worked when not applicable
+% Three examples of including as much or as little information as you wish
+\input{resumeSections/volExp}
+
+%-----------EDUCATION----------- 
+\input{resumeSections/education}
+
+%-----------JOB RELATED TRAINING-----------
+%\input{resumeSections/training}
+
+%-----------AFFILIATIONS-----------
+\input{resumeSections/affil}
+
+%-----------PROFESSIONAL PUBLICATIONS-----------
+\input{resumeSections/pubs}
+
+%-----------REFERENCES-----------
+\input{resumeSections/refs}
+
+%-----------ADDITIONAL INFORMATION-----------
+%\input{resumeSections/addlInfo}
+
+% A bonus section that could be used to format projects, although this section isn't part of the USAJobs resume builder
+% %-----------PROJECTS-----------
+% \section{Projects}
+%     \resumeSubHeadingListStart
+%       \resumeProjectHeading
+%           {\textbf{Gitlytics} $|$ \emph{Python, Flask, React, PostgreSQL, Docker}}{June 2020 -- Present}
+%           \resumeItemListStart
+%             \resumeItem{Developed a full-stack web application using with Flask serving a REST API with React as the frontend}
+%             \resumeItem{Implemented GitHub OAuth to get data from user’s repositories}
+%             \resumeItem{Visualized GitHub data to show collaboration}
+%             \resumeItem{Used Celery and Redis for asynchronous tasks}
+%           \resumeItemListEnd
+%       \resumeProjectHeading
+%           {\textbf{Simple Paintball} $|$ \emph{Spigot API, Java, Maven, TravisCI, Git}}{May 2018 -- May 2020}
+%           \resumeItemListStart
+%             \resumeItem{Developed a Minecraft server plugin to entertain kids during free time for a previous job}
+%             \resumeItem{Published plugin to websites gaining 2K+ downloads and an average 4.5/5-star review}
+%             \resumeItem{Implemented continuous delivery using TravisCI to build the plugin upon new a release}
+%             \resumeItem{Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin}
+%           \resumeItemListEnd
+%     \resumeSubHeadingListEnd
+
+% A bonus section that could be used to format skills, although this section isn't part of the USAJobs resume builder
+% %-----------PROGRAMMING SKILLS-----------
+% \section{Technical Skills}
+%  \begin{itemize}[leftmargin=0.15in, label={}]
+%     {\item{
+%      \textbf{Languages}{: Java, Python, C/C++, SQL (Postgres), JavaScript, HTML/CSS, R} \\
+%      \textbf{Frameworks}{: React, Node.js, Flask, JUnit, WordPress, Material-UI, FastAPI} \\
+%      \textbf{Developer Tools}{: Git, Docker, TravisCI, Google Cloud Platform, VS Code, Visual Studio, PyCharm, IntelliJ, Eclipse} \\
+%      \textbf{Libraries}{: pandas, NumPy, Matplotlib}
+%     }}
+%  \end{itemize}
+
+%-------------------------------------------
+\end{document}
