@@ -28,14 +28,6 @@ Python 3.10+ is required for the salary lookup tool. Check with:
 python --version
 ```
 
-### Bun (for job search tools)
-
-The Danish job portal CLIs are written in TypeScript and run with Bun:
-
-```bash
-curl -fsSL https://bun.sh/install | bash
-```
-
 ### LaTeX (for compiling CVs and cover letters)
 
 Install a LaTeX distribution to compile the generated `.tex` files to PDF:
