@@ -1,11 +1,11 @@
 ---
 name: job-scraper
-description: Scrapes Danish job sites for new positions matching your profile
+description: Scrapes job sites for new positions matching your profile
 ---
 
 ## How It Works
 
-This skill searches multiple Danish job sites using targeted queries based on your profile, deduplicates against previously seen jobs and the application tracker, and presents new matches with a quick fit assessment.
+This skill searches multiple job sites using targeted queries based on your profile, deduplicates against previously seen jobs and the application tracker, and presents new matches with a quick fit assessment.
 
 ## Invocation
 
@@ -36,8 +36,8 @@ Run **WebSearch** queries from `search-queries.md`. By default, run the top 3 pr
 If the user specified a focus area (e.g. "data science"), prioritize queries from that category.
 
 For each search:
-- Use `WebSearch` with site-specific queries (jobindex.dk, linkedin.com/jobs, karriere.dk, etc.)
-- Target your configured geographic area
+- Use `WebSearch` with site-specific queries (linkedin.com/jobs, indeed.com, glassdoor.com, google.com/jobs, ncworks.gov, etc.)
+- Target your configured geographic area (US: Remote / Research Triangle NC / DC metro / Midwest)
 - Look for postings from the last 14 days
 
 ### Step 2: Fetch & Parse
@@ -114,3 +114,32 @@ If the user decides to apply to any job, add a row to `job_search_tracker.csv`.
 4. **Only open positions.** Skip postings with expired deadlines or those marked as closed.
 5. **Be efficient with WebFetch.** Don't fetch every search result - use titles and snippets to pre-filter before fetching.
 6. **Parallel searches.** Use the Task tool or parallel WebSearch calls to speed up the search phase.
+
+---
+
+## NC State Careers Portal Check (always run during /scrape)
+
+The State of North Carolina uses a Workday careers portal. Query it directly via its public jobs API and
+report any new data-science / ML / analytics postings matching Steven's profile alongside the other
+scrape results.
+
+**Endpoint** (POST, JSON body, `Content-Type: application/json`):
+
+```
+curl -s -X POST "https://nc.wd108.myworkdayjobs.com/wday/cxs/nc/NC_Careers/jobs" \
+  -H "Content-Type: application/json" -H "Accept: application/json" \
+  -d '{"appliedFacets":{},"limit":20,"offset":0,"searchText":"<term>"}'
+```
+
+**Query terms to run** (deduplicate against `seen_jobs.json` and `job_search_tracker.csv`):
+- `data scientist`, `data science`, `data analyst`, `data analytics`
+- `machine learning`, `business intelligence`, `SQL`, `statistics`
+- `quantitative`, `research analyst`, `database`
+
+Fetch individual full listings with (GET):
+`https://nc.wd108.myworkdayjobs.com/wday/cxs/nc/NC_Careers/job/<externalPath>`
+(run a search first to get the externalPath/title-slug for each posting).
+
+**Dedup:** Use `seen_jobs.json` `"NC-<JR-id>"` keys for these postings. The OSA Senior Data Analyst
+(JR-121425) and the Applications Systems Analyst II shortlist (JR-111172) are already known/considered —
+skip those. Report only genuinely new, un-applied postings.
