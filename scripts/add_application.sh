@@ -28,6 +28,7 @@ sector=""
 role_type=""
 fit_rating=""
 analysis_gaps=""
+analysis_matches=""
 
 if [[ -n "$job_ad_path" ]]; then
     # Expand ~ and resolve relative paths
@@ -81,8 +82,16 @@ else
 fi
 
 read -rp "Channel applied through (LinkedIn/Company site/Referral/etc): " channel
-read -rp "Status (applied/rejected/no_response/interview_only/offer_declined/hired): " status
+read -rp "Status [Applied/Rejected/Ghosted/Unresponsive/Accepted/Shortlisted/Planned]: " status
 read -rp "Contact person (or leave blank): " contact
+
+echo ""
+echo "Follow-up (optional) — leave the date blank if none."
+read -rp "Follow-up date (YYYY-MM-DD): " follow_up_date
+follow_up_action=""
+if [[ -n "$follow_up_date" ]]; then
+    read -rp "Follow-up action: " follow_up_action
+fi
 
 # Fit rating
 if [[ -n "$fit_rating" ]]; then
@@ -128,6 +137,7 @@ cat > "${folder_path}/outcome.md" <<EOF
 **Role Type:** ${role_type}
 **Contact:** ${contact:-N/A}
 **Fit Rating:** ${fit_rating:-N/A}/100
+**Follow-up:** ${follow_up_date:-none}${follow_up_action:+ — ${follow_up_action}}
 
 ## Notes
 ${notes:-No additional notes.}
@@ -139,11 +149,29 @@ EOF
 
 echo "Created: ${folder_path}/outcome.md"
 
-# Append to CSV (escape commas in notes field)
-escaped_notes=$(echo "$notes" | sed 's/,/;/g')
-escaped_contact=$(echo "$contact" | sed 's/,/;/g')
+# Append to the tracker. Never interpolate into the CSV ourselves: this script
+# used to do `echo "${date},..." >> "$TRACKER"` with no quoting, which silently
+# shifted columns for any value containing a comma, and ran `sed 's/,/;/g'`
+# over notes/contact to compensate — destroying commas in the data. All CSV
+# writing now goes through record_application.py, which quotes properly, keeps
+# notes verbatim, validates the 15-column schema, and backs up first.
+echo ""
+echo "Recording to job_search_tracker.csv..."
+python3 "${SCRIPT_DIR}/record_application.py" \
+    --date "$date" \
+    --company "$company" \
+    --sector "$sector" \
+    --role "$role" \
+    --role-type "$role_type" \
+    --channel "$channel" \
+    --status "$status" \
+    --contact "$contact" \
+    --fit "$fit_rating" \
+    --notes "$notes" \
+    --source "$source" \
+    --follow-up-date "$follow_up_date" \
+    --follow-up-action "$follow_up_action"
 
-echo "${date},${company},${sector},${role},${role_type},${channel},${status},${escaped_contact},${fit_rating:-},${escaped_notes},,," >> "$TRACKER"
 echo "Appended row to job_search_tracker.csv"
 echo ""
 echo "Done! Folder: documents/applications/${folder_name}"
