@@ -49,7 +49,7 @@ This repo is a job application workspace. opencode acts as a career advisor and 
 ### Independent Projects
 - **Physics/Data Science Expert - Handshake AI** (Dec 2025 - Present) - Working with top AI labs to train cutting-edge models. *Side project*
 - **Physics/Data Science Expert - Mercor Intelligence** (Sep 2025 - Present) - Providing expertise in Physics and Data Science to improve models for a top AI lab. *Side project*
-- **PERC Proceedings Editorial** (May 2018 - Dec 2020) - Led conversion from single-blind to double-blind peer review process for physics education research community
+- **PERC Proceedings Editorial** (May 2018 - Dec 2020) - Led conversion from confidential to double-confidential peer review process for physics education research community
 - **concorR R Package** ([github.com/atraxlab/concorr](https://github.com/atraxlab/concorr)) - R package implementing CONCOR (CONvergence of iterated CORrelations) for positional analysis of social networks, grouping nodes by structural equivalence
 
 ### Technical Skills

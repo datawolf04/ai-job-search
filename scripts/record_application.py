@@ -27,6 +27,20 @@ Usage:
     python3 scripts/record_application.py --company Acme --role Data Scientist \
         --channel Greenhouse --status Applied --source https://... \
         --follow-up-date 2026-11-07 --follow-up-action "Chase if silent"
+
+Update mode edits one existing row in place (the CSV is still never hand-edited).
+Select the row by company/role substring; it must match exactly one row.
+
+    # clear a follow-up (both fields, or neither):
+    python3 scripts/record_application.py --update \
+        --match-company "Acme" --match-role "Data Scientist" \
+        --set follow_up_date= --set follow_up_action=
+
+    # change a value, or replace a unique substring anywhere in the row:
+    python3 scripts/record_application.py --update \
+        --match-company "Acme" --set status=Rejected
+    python3 scripts/record_application.py --update \
+        --match-company "Acme" --replace "PREPARED=SENT 2026-10-13"
 """
 
 import argparse
@@ -217,15 +231,95 @@ def upsert_seen_follow_up(key: str, date: str, action: str, dry_run: bool) -> st
     return f"{key}: follow_up set to {date} (was {previous or 'none'})"
 
 
+def validate_row(row: list[str], where: str = "row") -> None:
+    """Validate a single row after an in-place edit. Raises Abort on any violation."""
+    if len(row) != len(COLUMNS):
+        raise Abort(f"{where} parses to {len(row)} columns, expected {len(COLUMNS)}")
+    if not is_date(row[0]):
+        raise Abort(f"{where} has an invalid date: {row[0]!r}")
+    if not is_date(row[13]):
+        raise Abort(f"{where} has an invalid follow_up_date: {row[13]!r}")
+    if row[6] not in ALLOWED_STATUSES:
+        raise Abort(
+            f"{where} has status {row[6]!r} not in vocabulary.\n"
+            f"  allowed: {', '.join(sorted(ALLOWED_STATUSES))}"
+        )
+    if bool(row[13].strip()) != bool(row[14].strip()):
+        raise Abort(
+            f"{where} must set follow_up_date and follow_up_action together "
+            f"(got {row[13]!r} / {row[14]!r})"
+        )
+    for key in ("company", "role", "channel"):
+        if not row[COLUMNS.index(key)].strip():
+            raise Abort(f"{where} has an empty {key}")
+
+
+def apply_update(
+    args: argparse.Namespace, rows: list[list[str]]
+) -> tuple[int, list[str], list[str]]:
+    """Locate exactly one row by company/role substring, then apply --set/--replace."""
+    data = rows[1:]
+    want_co = args.match_company.strip().lower()
+    want_role = args.match_role.strip().lower()
+    if not want_co and not want_role:
+        raise Abort("--update requires --match-company and/or --match-role")
+    if not args.set and not args.replace:
+        raise Abort("--update requires at least one --set or --replace")
+
+    hits = [
+        i
+        for i, r in enumerate(data)
+        if (not want_co or want_co in r[1].lower())
+        and (not want_role or want_role in r[3].lower())
+    ]
+    if not hits:
+        raise Abort("no row matches the given selectors")
+    if len(hits) > 1:
+        listing = "\n".join(
+            f"  line {i + 2}: {data[i][1]} / {data[i][3]}" for i in hits
+        )
+        raise Abort(f"{len(hits)} rows match; narrow with --match-role:\n{listing}")
+
+    idx = hits[0]
+    before = list(data[idx])
+    row = list(data[idx])
+
+    for spec in args.set:
+        key, sep, value = spec.partition("=")
+        key = key.strip()
+        if not sep or key not in COLUMNS:
+            raise Abort(
+                f"--set expects KEY=VALUE with KEY in the schema, got {spec!r}"
+            )
+        row[COLUMNS.index(key)] = value
+
+    for spec in args.replace:
+        old, sep, new = spec.partition("=")
+        if not sep or not old:
+            raise Abort(f"--replace expects OLD=NEW, got {spec!r}")
+        count = sum(cell.count(old) for cell in row)
+        if count == 0:
+            raise Abort(f"--replace text not found in matched row: {old!r}")
+        if count > 1:
+            raise Abort(
+                f"--replace text appears {count} times in matched row; "
+                f"make it unique: {old!r}"
+            )
+        row = [cell.replace(old, new) for cell in row]
+
+    validate_row(row, where=f"line {idx + 2}")
+    return idx, before, row
+
+
 def main() -> int:
     p = argparse.ArgumentParser(
         description="Append one application to job_search_tracker.csv safely.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    p.add_argument("--company", required=True)
-    p.add_argument("--role", required=True)
-    p.add_argument("--channel", required=True, help="LinkedIn / Greenhouse / Company site / ...")
-    p.add_argument("--status", required=True, help=f"one of: {', '.join(sorted(ALLOWED_STATUSES))}")
+    p.add_argument("--company", default="", help="required when appending")
+    p.add_argument("--role", default="", help="required when appending")
+    p.add_argument("--channel", default="", help="LinkedIn / Greenhouse / Company site / ... (required when appending)")
+    p.add_argument("--status", default="", help=f"one of: {', '.join(sorted(ALLOWED_STATUSES))} (required when appending)")
     p.add_argument("--date", default="", help="YYYY-MM-DD, defaults to today")
     p.add_argument("--sector", default="")
     p.add_argument("--role-type", default="Full-time")
@@ -239,11 +333,42 @@ def main() -> int:
     p.add_argument("--follow-up-date", dest="follow_up_date", default="")
     p.add_argument("--follow-up-action", dest="follow_up_action", default="")
     p.add_argument("--seen-key", default="", help="seen_jobs.json key to upsert follow_up into")
+    p.add_argument("--update", action="store_true",
+                   help="edit an existing row in place instead of appending a new one")
+    p.add_argument("--match-company", dest="match_company", default="",
+                   help="--update selector: case-insensitive substring of company")
+    p.add_argument("--match-role", dest="match_role", default="",
+                   help="--update selector: case-insensitive substring of role")
+    p.add_argument("--set", action="append", default=[], metavar="KEY=VALUE",
+                   help="--update: set a column to a value (may be empty); repeatable")
+    p.add_argument("--replace", action="append", default=[], metavar="OLD=NEW",
+                   help="--update: replace a unique substring within the row; repeatable")
     p.add_argument("--dry-run", action="store_true", help="print and write nothing")
     args = p.parse_args()
 
     try:
         rows = load_tracker()
+
+        if args.update:
+            idx, before, after = apply_update(args, rows)
+            print(_as_csv_line(COLUMNS))
+            print("BEFORE " + _as_csv_line(before))
+            print("AFTER  " + _as_csv_line(after))
+            print(f"\nCSV line {idx + 2} (data row {idx + 1} of {len(rows) - 1}).")
+            if args.dry_run:
+                print("\nDRY RUN — nothing written.")
+            else:
+                data = rows[1:]
+                data[idx] = after
+                buf: list[str] = []
+                writer = csv.writer(_Collector(buf), lineterminator="\n")
+                writer.writerow(rows[0])
+                writer.writerows(data)
+                backup(TRACKER)
+                write_atomic(TRACKER, buf)
+                print("UPDATED 1 row.")
+            return 0
+
         new_row = build_row(args)
 
         print(_as_csv_line(COLUMNS))

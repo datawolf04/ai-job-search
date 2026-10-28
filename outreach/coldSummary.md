@@ -1,0 +1,3 @@
+# Cold Recruiter Summary (~100 words)
+
+Steven F. Wolf, Ph.D. — physicist turned data scientist with 10+ years turning complex problems into actionable insights. Primary stack: Python (NumPy, Pandas, TensorFlow, scikit-learn) and R, with deep statistical modeling. Secured >$1.3M in federal research grants as PI and published 25 peer-reviewed papers. Led a research group, mentored 10+ Learning Assistants, and built analytical tooling still in use post-departure. Strong AI/LLM practitioner (prompt engineering, agentic coding via opencode; current side work training models for AI labs). Seeking data science, ML, or scientific computing roles — remote, or relocating to the Midwest, DC, or Raleigh-Durham. Bridges technical and non-technical stakeholders.
