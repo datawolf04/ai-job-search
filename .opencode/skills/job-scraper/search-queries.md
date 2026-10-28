@@ -2,12 +2,20 @@
 
 ## Search Sites
 
-Primary (US job market):
+Primary (US job market). **These are discovery only — every hit must be verified on the employer's ATS
+before it is presented (see SKILL.md Step 2b):**
 - **linkedin.com/jobs** - LinkedIn job listings (filter: USA / target cities)
 - **indeed.com** - Indeed job listings
 - **glassdoor.com** - Glassdoor job listings
 - **google.com/jobs** - Google Jobs aggregation
 - **ncworks.gov** - North Carolina state job portal
+- **dice.com**, **aijobsmap.com**, **devitjobs.com**, **himalayas.co** - secondary aggregators; historically
+  the noisiest source of dead reqs. Verify strictly.
+
+Direct sources (already verified by construction, no gate needed):
+- Employer ATS pages via `site:` searches or known ATS endpoints (see the ATS Patterns table in SKILL.md)
+- NC Careers Workday API
+- Hitachi Energy Workday scraper (`job_scraper/hitachi_energy.py`)
 
 Secondary (company career pages via Google):
 - Direct Google searches with `site:` filters for known target companies:
@@ -91,6 +99,8 @@ Include remote positions regardless of location. For on-site/hybrid positions, f
 Prioritize listings from:
 - Government contractors: Raytheon, SNCorp (Sierra Nevada Corporation), Northrop Grumman, Lockheed Martin, Booz Allen Hamilton
 - Data science / scientific computing: Posit (formerly RStudio), Anaconda, Dataiku, Domino Data Lab
+- **Energy / industrial research:** Hitachi Energy (Raleigh research center posts new reqs constantly, adjacent
+  roles to each other — handled by the dedicated Workday scraper `job_scraper/hitachi_energy.py`, not by these queries)
 - Any company explicitly seeking physics or quantitative research background
 
 ## Salary Filter

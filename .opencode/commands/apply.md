@@ -288,6 +288,8 @@ Write `documents/applications/<company>_<role>/outcome.md` with this template:
 
 **Date resolved:**
 
+**Follow-up:** <YYYY-MM-DD> — <what to do and who to contact>
+
 ## Interview stages reached
 - [ ] Phone screen
 - [ ] Technical interview
@@ -299,6 +301,8 @@ Write `documents/applications/<company>_<role>/outcome.md` with this template:
 Applied <YYYY-MM-DD>. Awaiting response.
 ```
 
+The `**Follow-up:**` line is the single most important field in this file — `/status` reads it. Leave no gap in contact beyond 30 days. If there is genuinely no deadline, write `none` rather than omitting the line, because `/status` treats a missing line as "follow-up unknown" and reports it as a gap.
+
 ### 5.5g. Verify symlinks work
 
 ```bash
@@ -306,6 +310,37 @@ ls -la cv/main_<company>.tex cover_letters/cover_<company>_<role>.tex
 ```
 
 Confirm the symlinks resolve and the files are readable.
+
+### 5.5h. Record the application in the tracker
+
+Append this application to `job_search_tracker.csv` **only through the sanctioned writer** — never by hand, never with `echo >>`, never with a spreadsheet:
+
+```bash
+python3 scripts/record_application.py \
+  --company "<Company>" \
+  --sector "<Sector>" \
+  --role "<Role title>" \
+  --role-type "<Full-time/Part-time/Contract>" \
+  --channel "<LinkedIn/Company site/Referral/Direct Application (Greenhouse)/...>" \
+  --status Applied \
+  --contact "<name, or omit if unknown>" \
+  --fit "73/100 - Good Fit" \
+  --notes "<submitted-by note, salary range, gaps acknowledged, key differentiators>" \
+  --cv "cv/main_<company>.tex" \
+  --cover-letter "cover_letters/cover_<company>_<role>.tex" \
+  --source "<posting URL>" \
+  --follow-up-date "<YYYY-MM-DD>" \
+  --follow-up-action "Follow up with <person or company> if no contact on <role>" \
+  --seen-key "<seen_jobs.json entry key, if one exists>"
+```
+
+Set `--follow-up-date` to **today + 30 days** unless the posting states its own response window (e.g. "replies within 10 business days" → use that date instead). Put the same date in `outcome.md`'s `**Follow-up:**` line so the two agree.
+
+`--seen-key` links the tracker row back to the `follow_up` object inside `job_scraper/seen_jobs.json`, so `/status` reports that commitment once instead of twice. Look the key up there; if the application has no entry, omit the flag.
+
+The script validates the 15-column schema, refuses a `--status` outside the tracker's real vocabulary, backs up the file to `/tmp/opencode/` first, and writes atomically. On any refusal it exits 2 and writes nothing — read the message, correct the argument, and rerun. It never asks for confirmation and never partially writes.
+
+Pass `--dry-run` first if you want to see the exact row that will be appended.
 
 ---
 
@@ -331,5 +366,12 @@ List the files written:
 - `documents/applications/<company>_<role>/cover_letter.pdf`
 - `documents/applications/<company>_<role>/job_posting.md`
 - `documents/applications/<company>_<role>/outcome.md`
+
+Also report the state changes that are not files:
+- One row appended to `job_search_tracker.csv` (status `Applied`, follow-up date set)
+- `job_scraper/seen_jobs.json` `follow_up` updated, if `--seen-key` was given
+
+### Follow-up
+Read the `--follow-up-date` you recorded back to the user and state what happens on that date. This is a commitment, not a formality — the tracker now holds it and `/status` will surface it until it is resolved.
 
 Tell the user: "Application archived to `documents/applications/<company>_<role>/`. The CV and cover letter in `cv/` and `cover_letters/` are now symlinks to the archived copies. Both files are ready for your review."

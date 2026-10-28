@@ -32,10 +32,10 @@ Keep answers to 1-2 minutes. Be specific. End with what you learned or would do 
 **Use for:** "How do you communicate technical concepts to non-technical audiences?", "Tell me about a time you had to translate between technical and business teams"
 
 ### 4. PERC Proceedings Editorial Leadership (Team Leadership, Process Improvement)
-**S:** The Physics Education Research Conference Proceedings needed to convert from single-blind to double-blind peer review during the COVID pandemic.
+**S:** The Physics Education Research Conference Proceedings needed to convert from confidential to double-confidential peer review during the COVID pandemic.
 **T:** As Editor in Chief, I needed to lead the editorial team through this transition while maintaining quality and meeting conference deadlines.
 **A:** Created a timeline for the conversion, introduced it to the community, led the editorial team through the process, and coordinated with conference planning groups.
-**R:** Successfully converted to double-blind review; maintained editorial standards; created a fully virtual conference during COVID.
+**R:** Successfully converted to double-confidential review; maintained editorial standards; created a fully virtual conference during COVID.
 **Use for:** "Describe a time you led a team through change", "How do you handle process improvement?"
 
 ## STAR Candidates (Complete Manually)

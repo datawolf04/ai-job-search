@@ -44,14 +44,14 @@ East Lansing, MI
 ### Editorial Staff - PERC Proceedings (May 2018 -- Dec 2020)
 Remote
 - Editor in Chief (Jan 2020 -- Dec 2020): Led editorial team, coordinated delivery of conference proceedings during COVID pandemic, created fully virtual conference
-- Editor (Jan 2019 -- Dec 2019): Led peer review assignments, created timeline for double-blind review process
+- Editor (Jan 2019 -- Dec 2019): Led peer review assignments, created timeline for double-confidential review process
 - Associate Editor (May 2018 -- Dec 2018): Coordinated proceedings delivery and maintained editorial standards
 
 ## Independent Projects
 
 - **Physics/Data Science Expert - Handshake AI** (Dec 2025 -- Present) - Working with top AI labs to train cutting-edge models. *Side project*
 - **Physics/Data Science Expert - Mercor Intelligence** (Sep 2025 -- Present) - Providing expertise in Physics and Data Science to improve models for a top AI lab. *Side project*
-- **PERC Proceedings Editorial** (May 2018 -- Dec 2020) - Led conversion from single-blind to double-blind peer review process for physics education research community
+- **PERC Proceedings Editorial** (May 2018 -- Dec 2020) - Led conversion from confidential to double-confidential peer review process for physics education research community
 - **concorR R Package** ([github.com/atraxlab/concorr](https://github.com/atraxlab/concorr)) - R package implementing CONCOR (CONvergence of iterated CORrelations) for positional analysis of social networks, grouping nodes by structural equivalence
 
 ## Certifications
